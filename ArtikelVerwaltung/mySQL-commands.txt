@@ -1,0 +1,21 @@
+-- Verbindungsaufbau zum DB-Server
+C:\xampp\mysql\bin\mysql.exe -h localhost --port 3306 -u root -p
+
+C:\xampp\mysql\bin\mysql.exe -h localhost --port 3306 -u muster -p
+>Password: muster<
+
+--Datenbank erstellen
+CREATE DATABASE javaDB;
+USE javadb;
+
+--Tabelle erstellen
+CREATE TABLE artikel (ID INT(3) AUTO_INCREMENT PRIMARY KEY, bezeichnung VARCHAR(25) NOT NULL, preis DOUBLE(6,2), anzahl INT(6), datum DATE );
+
+--USER anlegen
+CREATE USER 'muster'@'localhost' IDENTIFIED BY 'muster';
+
+--RECHTE vergeben
+GRANT SELECT, INSERT, UPDATE, DELETE ON artikel TO 'muster'@'localhost';
+
+--RECHTE entziehen
+REVOKE DELETE ON artikel TO ...
